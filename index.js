@@ -6,7 +6,7 @@ const path = require('path');
 const fs = require('fs');
 const util = require('util');
 const inquirer = require('inquirer');
-const output = path.resolve(__dirname, "dist");
+const output = path.resolve(__dirname, "output");
 const outputPath = path.join(output, "index.html");
 
 
@@ -133,5 +133,50 @@ function addEngineer() {
             type:"input",
             message:"What is the engineer's github username?",
         }
-    ])
+    ]).then(answers => {
+        const engineer = new Engineer(
+            answers.engineerName,
+            answers.engineerId,
+            answers.engineerEmail,
+            answers.engineerGithub 
+            );
+            teamMembers.push(engineer);
+            idArray.push(answers.engineerId);
+            makeTeam();
+    });
+}
+
+function addIntern() {
+    inquirer.prompt([
+        {
+            name:"internName",
+            type:"input",
+            message:"What is your intern's name?"
+        },
+        {
+            name:"internId",
+            type:"input",
+            message:"What is the intern's ID number?"
+        },
+        {
+            name:"internEmail",
+            type:"input",
+            message:"What is the intern's E-mail address?"
+        },
+        {
+            name:"internSchool",
+            type:"input",
+            message:"What school is the intern attending?"
+        },
+    ]).then(answers => {
+        const intern = new Intern(
+            answers.internName,
+            answers.internId,
+            answers.internEmail,
+            answers.internSchool
+        );
+        teamMembers.push(intern);
+        idArray.push(answers.internId);
+        makeTeam();
+    });
 }

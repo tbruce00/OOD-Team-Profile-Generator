@@ -131,7 +131,7 @@ function addEngineer() {
         {
             name:"engineerEmail",
             type:"input",
-            message:"What is the engineer's E-mail address?,
+            message:"What is the engineer's E-mail address?",
         },
         {
             name:"engineerGithub",

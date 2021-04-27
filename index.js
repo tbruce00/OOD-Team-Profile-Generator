@@ -1,10 +1,9 @@
+const Employee = require('./lib/Employee');
 const Manager = require ('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const Inquirer = require('inquirer');
 const path = require('path');
 const fs = require('fs');
-const util = require('util');
 const inquirer = require('inquirer');
 
 const teamMembers = [];
@@ -137,19 +136,19 @@ function addEngineer() {
             name:"engineerGithub",
             type:"input",
             message:"What is the engineer's github username?",
-        }
+        },
     ]).then(answers => {
         const engineer = new Engineer(
             answers.engineerName,
             answers.engineerId,
             answers.engineerEmail,
-            answers.engineerGithub 
+            answers.engineerGithub, 
             );
             teamMembers.push(engineer);
             idArray.push(answers.engineerId);
             makeTeam();
-    });
-}
+    })
+};
 
 function addIntern() {
     inquirer.prompt([

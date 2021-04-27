@@ -29,7 +29,7 @@ const generateTeam = (team) => {
                 <ul class="list-group">
                     <li class="list-group-item">ID: ${engineer.getId()}</li>
                     <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                    <li class="list-group-item">Office Number: ${engineer.getofficeNumber()}</li>
+                    <li class="list-group-item">GitHub Username: ${engineer.getGithub()}</li>
                 </ul>
             </div>
         </div>
@@ -46,7 +46,7 @@ const generateTeam = (team) => {
                 <ul class="list-group">
                     <li class="list-group-item">ID: ${intern.getId()}</li>
                     <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${engineer.getEmail()}</a></li>
-                    <li class="list-group-item">Office Number: ${intern.getofficeNumber()}</li>
+                    <li class="list-group-item">School: ${intern.getSchool()}</li>
                 </ul>
             </div>
         </div>

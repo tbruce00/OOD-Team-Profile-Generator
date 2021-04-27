@@ -1,7 +1,7 @@
 const Manager = require("../lib/Manager");
 
 
-describe("Creates a new Manager", () => {
+test("Creates a new Manager", () => {
     const manager = new Manager("Trevor", 1, "tbnyk03@gmail.com", 100);
 
     expect(manager.name).toBe("Trevor");

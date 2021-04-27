@@ -1,7 +1,7 @@
 const Employee = require("../lib/Employee");
 
 
-describe("Creates a new Employee", () => {
+test("Creates a new Employee", () => {
     const employee = new Employee("Trevor", 1, "tbnyk03@gmail.com");
 
     expect(employee.name).toBe("Trevor");

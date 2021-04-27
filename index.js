@@ -6,25 +6,29 @@ const path = require('path');
 const fs = require('fs');
 const util = require('util');
 const inquirer = require('inquirer');
+
+const teamMembers = [];
+const idArray = [];
 const output = path.resolve(__dirname, "output");
-const outputPath = path.join(output, "index.html");
+const outputPath = path.join(output, "index.html"); 
+const genHTML = require('./src/template');
 
 
 // series of prompts for each type of team member
-const questions = []
+const init = () => {
+    
+
 
 // will also need switch case to ask questions based on which team member they choose
 function getManager(){
+    console.log("Please continue to build your team");
     inquirer.prompt([
         {
             name:"managerName",
             type: "input",
             message:"What is the manager's name",
             validate: answer => {
-                const pass = answer.match(
-                    /\S+@\S+\.\S+/
-                );
-                if (pass) {
+                if (answer !== '') {
                     return true;
                 }
                 return "Please enter the team manager's name";
@@ -180,3 +184,11 @@ function addIntern() {
         makeTeam();
     });
 }
+};
+
+const createTeam = () => {
+    fs.writeFileSync(outputPath, genHTML(teamMembers));
+    getManager();
+}
+
+init();

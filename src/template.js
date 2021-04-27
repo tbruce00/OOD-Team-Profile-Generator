@@ -51,9 +51,19 @@ const generateTeam = (team) => {
             </div>
         </div>
         `            
-
     }
-}
+    const html = []
+    html.push(team.filter(employee => employee.getRole() === "Manager")
+    .map(manager => buildManager(manager))
+    .join(""));
+    html.push(team.filter(employee => employee.getRole() === "Engineer")
+    .map(engineer => buildEngineer(engineer))
+    .join(""));
+    html.push(team.filter(employee => employee.getRole() === "Intern")
+    .map(intern => buildIntern(intern))
+    .join(""));
+    return html.join("")
+};
 
 
 module.exports = team => {

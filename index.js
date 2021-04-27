@@ -16,6 +16,7 @@ const genHTML = require('./src/template');
 
 // series of prompts for each type of team member
 const init = () => {
+    getManager();
     
 
 
@@ -188,7 +189,6 @@ function addIntern() {
 
 const createTeam = () => {
     fs.writeFileSync(outputPath, genHTML(teamMembers));
-    getManager();
 }
 
 init();
